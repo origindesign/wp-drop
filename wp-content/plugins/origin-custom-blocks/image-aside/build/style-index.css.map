@@ -1,0 +1,1 @@
+{"version":3,"file":"./style-index.css","mappings":";;;AAAA;EACC;EACA;AACD;AACC;EACC;AACF;AAEC;EACC;AAAF,C","sources":["webpack://image-aside/./src/style.scss"],"sourcesContent":[".image-aside {\n\tbackground-color: #efefef;\n\tpadding: 8rem 6rem;\n\n\t.image {\n\t\tgrid-column: span 4;\n\t}\n\n\t.content {\n\t\tgrid-column: 6 / span 7;\n\t}\n}\n"],"names":[],"sourceRoot":""}

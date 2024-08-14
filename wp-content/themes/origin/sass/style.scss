@@ -1,0 +1,74 @@
+/*!
+Theme Name: origin
+Theme URI: http://underscores.me/
+Author: Underscores.me
+Author URI: http://underscores.me/
+Description: Description
+Version: 1.0.0
+Tested up to: 5.4
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: origin
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned.
+
+origin is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+
+@import "../node_modules/breakpoint-sass/stylesheets/breakpoint";
+
+@import "05-base/normalize";
+
+// Import variables and mixins.
+@import "00-config/breakpoints";
+@import "00-config/spacings";
+@import "00-config/colors";
+@import "00-config/columns";
+@import "00-config/structure";
+@import "00-config/typography";
+@import "00-config/icons";
+@import "00-config/motion";
+
+// Mixins
+@import "03-mixins/mixins";
+
+/*--------------------------------------------------------------
+# Base
+--------------------------------------------------------------*/
+@import "05-base/body";
+@import "05-base/box-sizing";
+@import "05-base/buttons";
+@import "05-base/fields";
+@import "05-base/grid";
+@import "05-base/headings";
+@import "05-base/links";
+@import "05-base/lists";
+@import "05-base/media";
+@import "05-base/tables";
+@import "05-base/utility";
+
+/*--------------------------------------------------------------
+# Components
+--------------------------------------------------------------*/
+@import "06-components/captions";
+@import "06-components/galleries";
+@import "06-components/media";
+@import "06-components/navigation";
+@import "06-components/buttons";
+@import "06-components/header";
+@import "06-components/footer";
+
+/*--------------------------------------------------------------
+# Plugins
+--------------------------------------------------------------*/
+
+/* Jetpack infinite scroll
+--------------------------------------------- */
+@import "09-plugins/jetpack/infinite-scroll";

@@ -1,0 +1,195 @@
+/* Mixin - Transition */
+$transition-duration-base: 0.3;
+$transition-time: 0.5;
+$transition-time-slower: 0.8;
+$transition-ease-ui: cubic-bezier(0.645, 0.045, 0.355, 1);
+$transition-timing-function-base: ease-in-out;
+$transition-offset-horizontal: 20%;
+$transition-offset-vertical: 2em;
+
+@mixin transitions(
+    $what: all,
+    $time: $transition-duration-base,
+    $how: $transition-timing-function-base,
+    $delay: 0
+) {
+    transition: $what #{$time}s $how #{$delay}s;
+}
+
+@mixin transitionUI() {
+    @include transitions(all, $transition-time, $transition-ease-ui);
+}
+
+@mixin transitionVisibility() {
+    transition:
+        opacity #{$transition-duration-base}s $transition-ease-ui,
+        transform #{$transition-duration-base}s $transition-ease-ui,
+        max-height #{$transition-duration-base}s $transition-ease-ui,
+        visibility 0s #{$transition-duration-base}s;
+}
+
+@mixin transitionVisibilityShow() {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transition:
+        opacity #{$transition-duration-base}s $transition-ease-ui,
+        transform #{$transition-duration-base}s $transition-ease-ui,
+        max-height #{$transition-duration-base}s $transition-ease-ui,
+        visibility 0s !important;
+}
+
+@mixin transitionPageElement($time: $transition-time-slower) {
+    transition-duration: #{$time}s;
+}
+
+@mixin fadeIn() {
+    @include transitionPageElement();
+    opacity: 0;
+    &.in-view {
+        opacity: 1;
+    }
+}
+
+// Loader //
+@keyframes animsition-loading {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
+@mixin loader() {
+    position: relative;
+
+    &:after {
+        @include transitions();
+        content: "\020";
+        width: 3.2rem;
+        height: 3.2rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -16px;
+        border-radius: 50%;
+        z-index: 2;
+
+        background-color: transparent;
+        border-top: 5px solid rgba(0 0 0 / 20%);
+        border-right: 5px solid rgba(0 0 0 / 20%);
+        border-bottom: 5px solid rgba(0 0 0 / 20%);
+        border-left: 5px solid #eee;
+        transform: translateZ(0) translateX(-50%) translateY(-50%);
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        animation-duration: 0.8s;
+        animation-name: animsition-loading;
+    }
+}
+
+// Demo UI
+.motion {
+    padding: 0 1rem;
+}
+
+.motion__grid {
+    @media (min-width: 920px) {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+.motion__grid-item {
+    @media (min-width: 920px) {
+        margin-bottom: 1rem;
+        margin-right: 1rem;
+        width: 49%;
+
+        &:nth-child(2n) {
+            margin-right: 0;
+        }
+    }
+}
+
+.demo-motion {
+    background-color: var(--c-highlight);
+    border-radius: 2px;
+    cursor: pointer;
+    padding: 3rem;
+    text-align: center;
+
+    &::before {
+        content: "Duration: #{$transition-duration-base}";
+        display: block;
+    }
+
+    &::after {
+        content: "Timing Function: #{$transition-timing-function-base}";
+    }
+
+    span {
+        display: block;
+        margin: 0.25rem;
+    }
+}
+
+.demo-motion--fade {
+    @include transitions();
+
+    &:hover {
+        background-color: var(--c-accent-high);
+        color: var(--muted);
+    }
+}
+
+.demo-motion--slide-up {
+    @include transitions(transform, 0.4s, ease-in);
+
+    &::before {
+        content: "Duration: 0.4s";
+        display: block;
+    }
+
+    &::after {
+        content: "Timing Function: ease-in";
+    }
+
+    &:hover {
+        transform: translateY(-10px);
+    }
+}
+
+.demo-motion--slide-down {
+    @include transitions(transform, 0.2s, linear);
+
+    &::before {
+        content: "Duration: 0.2s";
+        display: block;
+    }
+
+    &::after {
+        content: "Timing Function: linear";
+    }
+
+    &:hover {
+        transform: translateY(10px);
+    }
+}
+
+.demo-motion--expand {
+    @include transitions(transform, 0.3s, cubic-bezier(0.17, 0.67, 0.83, 0.67));
+
+    &::before {
+        content: "Duration: 0.3s";
+        display: block;
+    }
+
+    &::after {
+        content: "Timing Function: cubic-bezier(.17,.67,.83,.67)";
+    }
+
+    &:hover {
+        transform: scale(1.03);
+    }
+}

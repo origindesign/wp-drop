@@ -1,0 +1,16 @@
+.banner {
+	background-color: #00523e;
+	max-width: 100vw !important;
+	padding: 4rem;
+	height: 60vh;
+	min-height: 25rem;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: baseline;
+	color: #fff;
+	margin-bottom: 3rem;
+
+	h1 {
+		color: #fff;
+	}
+}

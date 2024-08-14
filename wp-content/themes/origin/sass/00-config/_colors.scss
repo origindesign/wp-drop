@@ -1,0 +1,66 @@
+// Color variables
+
+// Grayscale
+$white: #fff;
+$near-white: #f2f2f2;
+$gray-lightest: #e5e5e5;
+$gray-lighter: #ccc;
+$gray-light: #888;
+$gray: #666;
+$gray-dark: #4c4c4c;
+$gray-darker: #333;
+$black: #000;
+
+// Project
+$brand-green-dark: #005240;
+$brand-green-light: #c4dcc4;
+$brand-surf-blue: #b6e0e0;
+$brand-surf-blue-dark: #49a2a2;
+$brand-plumeria: #ffe89e;
+$brand-plumeria-highlight: #fedd74;
+$brand-passionfruit: #ffc6de;
+$brand-periwinkle: #fa97f1;
+$brand-periwinkle-dark: #e458d7;
+$brand-sand: #fcfaf2;
+$brand-orange: #ff6e2e;
+$brand-charcoal: #0c0f0f;
+$brand-papaya: #ff6867;
+$brand-papaya-dark: #f74c4b;
+$brand-papaya-xdark: #de3535;
+
+// Color Usage variables - use these (via the `clr` function below)
+// rather than color variables directly.
+
+:root {
+    --c-text: #{$brand-green-dark};
+    --c-text-green: #{$brand-green-light};
+    --c-text-light: #{$brand-sand};
+    --c-text-dark: #{$brand-charcoal};
+    --c-background: #{$white};
+    --c-border: #{$brand-green-dark};
+    --c-primary: #{$brand-green-dark};
+    --c-bg-yellow: #{$brand-plumeria};
+    --c-bg-yellow-dark: #{$brand-plumeria-highlight};
+    --c-bg-pink: #{$brand-passionfruit};
+    --c-bg-pink-med: #{$brand-periwinkle};
+    --c-bg-pink-dark: #{$brand-periwinkle-dark};
+    --c-bg-green: #{$brand-green-light};
+    --c-bg-green-dark: #{$brand-green-dark};
+    --c-bg-blue: #{$brand-surf-blue};
+    --c-bg-blue-dark: #{$brand-surf-blue-dark};
+    --c-bg-orange: #{$brand-orange};
+    --c-bg-red: #{$brand-papaya};
+    --c-bg-red-dark: #{$brand-papaya-dark};
+    --c-bg-xdark: #{$brand-papaya-xdark};
+    --c-bg-black: #{$brand-charcoal};
+    --c-bg-sand: #{$brand-sand};
+    --c-highlight: #{$brand-sand};
+    --c-highlight-yellow: #{$brand-plumeria-highlight};
+    --c-highlight-pink: #{$brand-periwinkle};
+    --c-muted: #{$brand-sand};
+    --c-warning: #{$brand-plumeria};
+    --c-error: #{$brand-papaya-dark};
+    --c-message: #{$brand-green-light};
+    --c-accent: #{$brand-green-dark};
+    --c-accent-high: #{$brand-green-light};
+}

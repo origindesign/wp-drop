@@ -1,0 +1,16 @@
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e8e8e8;
+    padding: 0 4rem;
+
+    nav {
+        width: 43rem;
+    }
+
+    .menu {
+        display: flex;
+        justify-content: end;
+    }
+}

@@ -1,0 +1,12 @@
+.image-aside {
+	background-color: #efefef;
+	padding: 8rem 6rem;
+
+	.image {
+		grid-column: span 4;
+	}
+
+	.content {
+		grid-column: 6 / span 7;
+	}
+}

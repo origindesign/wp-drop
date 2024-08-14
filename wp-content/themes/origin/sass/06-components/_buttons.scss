@@ -1,0 +1,68 @@
+@mixin button-base() {
+    @include transitionUI();
+    outline-offset: $outline-offset;
+    font-weight: 600;
+    line-height: 110%;
+    letter-spacing: 0.16px;
+    text-transform: lowercase;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: initial;
+    text-decoration: none;
+    cursor: pointer;
+
+    @include hover() {
+        text-decoration: underline;
+    }
+}
+
+@mixin btn($multiplier: 1) {
+    @include button-base();
+    @include fonticonSetup();
+    @include fonticon($icon--arrow-right, 1.3rem, var(--c-text), 0, 0);
+    @include fontsize(15 * $multiplier);
+    --background: var(--c-bg-green-dark);
+    height: 4rem;
+    border-radius: 0.5rem;
+    padding: 0 3rem 0 6rem;
+    margin-top: 0.75em;
+    background-color: var(--background);
+    outline-color: var(--background);
+    color: var(--c-text-green);
+
+    @include breakpoint($bp--typography-large) {
+        @include fontsize(16 * $multiplier);
+        padding: 0 3rem 0 8rem;
+        height: 5rem;
+    }
+
+    &::before {
+        @include transitionUI();
+        --size: 4rem;
+        border-radius: 0.5rem;
+        background-color: var(--c-bg-green);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: var(--size);
+        width: var(--size);
+
+        @include breakpoint($bp--typography-large) {
+            --size: 5rem;
+        }
+    }
+
+    @include hover() {
+        padding: 0 6rem 0 3rem;
+
+        @include breakpoint($bp--typography-large) {
+            padding: 0 8rem 0 3rem;
+        }
+
+        &::before {
+            left: calc(100% - var(--size));
+        }
+    }
+}

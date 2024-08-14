@@ -1,0 +1,257 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
+$font-regular: "Poppins", times, "Times New Roman", serif;
+$font-heading: "Poppins", "Helvetica", "Arial", sans-serif;
+
+$base-font-size: 17;
+$medium-font-size: 16;
+$small-font-size: 15;
+$base-typography-spacing: 1.25em;
+$base-line-height: 1.4;
+
+/**
+ * Body Text variations
+ */
+@mixin fontsize($fontsize: $base-font-size) {
+    font-size: #{$fontsize * 0.1} + rem;
+}
+
+@mixin body-copy($multiplier: 1) {
+    @include fontsize($small-font-size * $multiplier);
+    line-height: $base-line-height;
+    font-family: $font-regular;
+
+    @include breakpoint($bp--typography-large) {
+        @include fontsize($medium-font-size * $multiplier);
+    }
+    @include breakpoint($bp--large) {
+        @include fontsize($base-font-size * $multiplier);
+    }
+}
+
+@mixin micetype($multiplier: 1) {
+    @include fontsize(13 * $multiplier);
+}
+
+@mixin large-text($multiplier: 1) {
+    @include fontsize(19 * $multiplier);
+    font-weight: 400;
+    @include breakpoint($bp--typography-large) {
+        @include fontsize(20 * $multiplier);
+    }
+    @include breakpoint($bp--large) {
+        @include fontsize(22 * $multiplier);
+    }
+}
+
+@mixin small-text($multiplier: 1) {
+    @include fontsize(14 * $multiplier);
+
+    @include breakpoint($bp--typography-large) {
+        @include fontsize(15 * $multiplier);
+    }
+}
+
+@mixin link() {
+    text-decoration: underline;
+    color: var(--c-accent);
+
+    @include hover() {
+        text-decoration: none;
+    }
+}
+
+@mixin label() {
+    font-size: 1.3rem;
+    @include breakpoint($bp--typography-large) {
+        font-size: 1.5rem;
+    }
+}
+
+@mixin base-typography() {
+    p,
+    ul,
+    ol {
+        @include marginResets();
+        margin: $base-typography-spacing 0;
+    }
+    ul,
+    ol {
+        padding-left: 2.5em;
+        ul,
+        ol {
+            margin-bottom: 1em !important;
+        }
+    }
+}
+
+/**
+ * Heading typography mixins
+ */
+@mixin heading($fontsize: $base-font-size, $weight: 600) {
+    @include fontsize($fontsize);
+    font-family: $font-heading;
+    font-weight: $weight;
+}
+
+@mixin h1() {
+    @include heading(40, 700);
+    line-height: 1;
+    margin: 0 0 0.5em;
+
+    @include breakpoint($bp--typography) {
+        @include fontsize(60);
+    }
+    @include breakpoint($bp--typography-large) {
+        @include fontsize(80);
+    }
+    @include breakpoint($bp--large) {
+        @include fontsize(100);
+    }
+}
+
+@mixin h2-large($multiplier: 1) {
+    @include heading(28 * $multiplier);
+    line-height: 1;
+    margin: 0 0 0.45em 0;
+
+    @include breakpoint($bp--typography-large) {
+        @include fontsize(44 * $multiplier);
+    }
+    @include breakpoint($bp--large) {
+        @include fontsize(60 * $multiplier);
+    }
+}
+
+@mixin h2($multiplier: 1) {
+    @include heading(24 * $multiplier);
+    line-height: 1;
+    margin: 0 0 0.75em 0;
+
+    @include breakpoint($bp--typography-large) {
+        @include fontsize(30 * $multiplier);
+    }
+    @include breakpoint($bp--large) {
+        @include fontsize(38 * $multiplier);
+    }
+}
+
+@mixin h3($multiplier: 1) {
+    @include heading(16 * $multiplier);
+    line-height: 1;
+    margin: 0 0 0.75em 0;
+
+    @include breakpoint($bp--typography-large) {
+        @include fontsize(20 * $multiplier);
+    }
+    @include breakpoint($bp--large) {
+        @include fontsize(23 * $multiplier);
+    }
+}
+
+@mixin h4($multiplier: 1) {
+    @include heading(15 * $multiplier);
+    line-height: 1;
+    margin: 0 0 1em 0;
+    text-transform: uppercase;
+
+    @include breakpoint($bp--large) {
+        @include fontsize(17 * $multiplier);
+    }
+}
+
+@mixin h5($multiplier: 1) {
+    @include heading(15 * $multiplier);
+    line-height: 1;
+    margin: 0 0 1em 0;
+    text-transform: uppercase;
+
+    @include breakpoint($bp--large) {
+        @include fontsize(17 * $multiplier);
+    }
+}
+
+@mixin h6($multiplier: 1) {
+    @include h5();
+}
+
+/**
+ * Heading variations
+ */
+@mixin hero-heading-large($multiplier: 1) {
+    @include heading(80 * $multiplier, 700);
+    line-height: 1.1;
+    letter-spacing: 0.1em;
+    margin: 0 0 1em 0;
+    text-transform: lowercase;
+    text-align: center;
+
+    @include breakpoint($bp--tablet-portrait) {
+        @include fontsize(120 * $multiplier);
+    }
+
+    @include breakpoint($bp--tablet-landscape) {
+        @include fontsize(160 * $multiplier);
+    }
+
+    @include breakpoint($bp--typography-large) {
+        @include fontsize(200 * $multiplier);
+    }
+
+    @include breakpoint($bp--large) {
+        @include fontsize(240 * $multiplier);
+    }
+
+    @include breakpoint($bp--xlarge) {
+        @include fontsize(260 * $multiplier);
+    }
+
+    // specific use-case for when we want to add some word insets EG hero banner on home page
+    span {
+        display: block;
+
+        @include breakpoint($bp--large) {
+            display: unset;
+        }
+
+        &:nth-child(1) {
+            margin-left: -30%;
+
+            @include breakpoint($bp--large) {
+                margin-left: 0;
+            }
+        }
+        &:nth-child(2) {
+            margin-right: -30%;
+
+            @include breakpoint($bp--large) {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+@mixin footer-heading($multiplier: 1) {
+    @include heading(22 * $multiplier);
+    line-height: 1.2;
+    margin: 0 0 1em 0;
+    text-transform: lowercase;
+    font-weight: 700;
+
+    @include breakpoint($bp--large) {
+        @include fontsize(26 * $multiplier);
+        margin: 0 0 1.25em 0;
+    }
+}
+
+@mixin stat-heading($multiplier: 1) {
+    @include heading(46 * $multiplier);
+    line-height: 1.1;
+    margin: 0 0 1em 0;
+    text-transform: lowercase;
+    font-weight: 700;
+
+    @include breakpoint($bp--large) {
+        @include fontsize(53 * $multiplier);
+        margin: 0 0 1.25em 0;
+    }
+}

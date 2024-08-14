@@ -1,0 +1,71 @@
+// Measurements
+$container-max-width: 1480px;
+$small-screen-padding: 5.5vw;
+$medium-screen-padding: 5.2vw;
+$large-screen-padding: 3.75vw;
+$xlarge-screen-padding: 6vw;
+$header-height-small: 6.2rem;
+$header-height: 10.5rem;
+$admin-bar: 39px;
+$admin-bar-open: 79px;
+
+// Basic layout
+$row-spacing-small: 6rem;
+$row-spacing-medium: 8rem;
+$row-spacing: 12rem;
+$row-spacing-large: 16rem;
+$column-gap-small: 2.5%;
+$column-gap-medium: 1.45%;
+$column-gap: 1.35%;
+$row-gap: 3em;
+
+// Interface
+$outline-offset: 2px;
+$outline: 2px dotted;
+$border: 1px solid var(--c-border);
+
+// Images
+$base-image-padding: 0.85;
+$square-image-padding: 0.95;
+$portrait-image-padding: 1.2;
+$widescreen-image-padding: 0.5625;
+
+/*
+ * Use this on the outer wrapper of page-level elements.
+ * It ensures consistent spacing between elements on the page.
+ */
+@mixin space-stack-page {
+    margin-bottom: $space-double;
+}
+
+// pull in sass variables
+:root {
+    --header-height: #{$header-height-small};
+    --row-spacing: #{$row-spacing-small};
+    --row-spacing-half: calc(var(--row-spacing) * 0.5);
+    --row-spacing-large: #{$row-spacing-small};
+    --page-margin: #{$small-screen-padding};
+    --column-gap: #{$column-gap-small};
+    --row-gap: #{$row-gap};
+    --aspect-ratio: #{$base-image-padding};
+    --admin-bar: #{$admin-bar};
+
+    @include breakpoint($bp--tablet-portrait) {
+        --row-spacing: #{$row-spacing-medium};
+        --row-spacing-large: #{$row-spacing};
+        --header-height: #{$header-height};
+        --page-margin: #{$medium-screen-padding};
+    }
+
+    @include breakpoint($bp--large) {
+        --header-height: #{$header-height};
+        --row-spacing: #{$row-spacing};
+        --row-spacing-large: #{$row-spacing-large};
+        --page-margin: #{$large-screen-padding};
+        --column-gap: #{$column-gap};
+    }
+
+    @include breakpoint($bp--xlarge) {
+        --page-margin: #{$xlarge-screen-padding};
+    }
+}

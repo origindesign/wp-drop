@@ -1,0 +1,78 @@
+* {
+    box-sizing: border-box;
+
+    &:focus {
+        outline: $outline;
+    }
+
+    &:focus:not(:focus-visible) {
+        outline: none;
+    }
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    color: var(--c-text);
+    background: var(--c-background);
+    @include body-copy();
+}
+
+a {
+    @include transitions();
+}
+
+// rich text editor (rte) - internal content
+//   .rte {
+//     @include base-typography();
+
+//     a:not([class*='btn']) {
+//       @include link();
+//     }
+
+//     * + h3 {
+//       margin-top: 1.75em;
+//     }
+
+//     * + h4 {
+//       margin-top: 2em;
+//     }
+
+//     * + h5 {
+//       margin-top: 1.75em;
+//     }
+
+//     * + .btn {
+//       margin-top: 2.5rem;
+//     }
+
+//     h4,
+//     h5 {
+//       + {
+//         p,
+//         ol,
+//         ul {
+//           margin-top: 0 !important;
+//         }
+//       }
+//     }
+//   }
+
+blockquote {
+    padding: 2rem 3rem;
+    margin: $base-typography-spacing 0;
+}
+
+iframe {
+    border: none !important;
+    width: 100% !important;
+}
+
+button {
+    &.reset {
+        background: none;
+        border: none;
+    }
+}
