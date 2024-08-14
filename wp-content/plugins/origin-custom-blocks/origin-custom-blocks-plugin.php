@@ -26,6 +26,7 @@ function origin_block_library_init() {
 	register_block_type( __DIR__ . '/image-aside/build' );
 	register_block_type( __DIR__ . '/banner/build' );
 	register_block_type( __DIR__ . '/single-column-copy/build' );
+	register_block_type( __DIR__ . '/two-column-copy/build' );
 }
 add_action( 'init', 'origin_block_library_init' );
 
@@ -34,6 +35,7 @@ function origin_allowed_blocks( $allowed_block_types, $editor_context ) {
 		'create-block/image-aside',
 		'create-block/banner',
 		'create-block/single-column-copy',
+		'create-block/two-column-copy',
 		'core/heading',
 		'core/paragraph',
 	);

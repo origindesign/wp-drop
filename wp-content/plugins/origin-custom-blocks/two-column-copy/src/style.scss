@@ -1,0 +1,21 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.two-column-copy {
+	padding: 6rem 0;
+
+	h2 {
+		grid-column: 4 / span 8;
+	}
+
+	p:first-of-type {
+		grid-column: 5 / span 3;
+	}
+	p:last-of-type {
+		grid-column: 8 / span 3;
+	}
+}

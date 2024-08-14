@@ -4,7 +4,6 @@
     &:focus {
         outline: $outline;
     }
-
     &:focus:not(:focus-visible) {
         outline: none;
     }

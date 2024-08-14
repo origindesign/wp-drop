@@ -21,6 +21,7 @@ wp-content/backups/
 /wp-admin/
 /wp-includes/
 node-modules
+wp-content/themes/origin/node_modules/
 
 # Avoid accidental modification of pantheon.upstream.yml in sites
 # created from this upstream
